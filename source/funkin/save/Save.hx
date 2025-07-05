@@ -18,7 +18,7 @@ import funkin.api.newgrounds.Medals;
 class Save
 {
   public static final SAVE_DATA_VERSION:thx.semver.Version = "2.1.1";
-  public static final SAVE_DATA_VERSION_SUFFIX:thx.semver.Version = "OOPS";
+  public static final SAVE_DATA_VERSION_SUFFIX:String = "OOPS";
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = ">=2.1.0 <2.2.0";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
