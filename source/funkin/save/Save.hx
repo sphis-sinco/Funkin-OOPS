@@ -3,24 +3,22 @@ package funkin.save;
 import flixel.util.FlxSave;
 import funkin.input.Controls.Device;
 import funkin.play.scoring.Scoring;
-import funkin.play.scoring.Scoring.ScoringRank;
 import funkin.save.migrator.RawSaveData_v1_0_0;
 import funkin.save.migrator.SaveDataMigrator;
 import funkin.ui.debug.charting.ChartEditorState.ChartEditorLiveInputStyle;
 import funkin.ui.debug.charting.ChartEditorState.ChartEditorTheme;
 import funkin.ui.debug.stageeditor.StageEditorState.StageEditorTheme;
 import funkin.util.FileUtil;
-import funkin.util.SerializerUtil;
-import thx.semver.Version;
 #if FEATURE_NEWGROUNDS
-import funkin.api.newgrounds.Medals;
 import funkin.api.newgrounds.Leaderboards;
+import funkin.api.newgrounds.Medals;
 #end
 
 @:nullSafety
 class Save
 {
-  public static final SAVE_DATA_VERSION:thx.semver.Version = "2.1.0";
+  public static final SAVE_DATA_VERSION:thx.semver.Version = "2.1.1";
+  public static final SAVE_DATA_VERSION_SUFFIX:thx.semver.Version = "OOPS";
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = ">=2.1.0 <2.2.0";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
@@ -34,7 +32,17 @@ class Save
    * We always use this save slot.
    * Alter this if you want to use a different save slot.
    */
-  static final BASE_SAVE_SLOT:Int = 1;
+  static var SAVE_SLOT:Int = 1;
+
+  /**
+   * This will change the `SAVE_SLOT` variable, resetting the game and current save
+   * @param NewSlotIndex New slot index
+   */
+  public static function CHANGE_SAVE_SLOT(NewSlotIndex:Int = 1):Void
+  {
+    SAVE_SLOT = NewSlotIndex;
+    FlxG.resetGame();
+  }
 
   public static var instance(get, never):Save;
   static var _instance:Null<Save> = null;
@@ -55,7 +63,7 @@ class Save
     trace("[SAVE] Loading save...");
 
     // Bind save data.
-    var loadedSave:Save = loadFromSlot(BASE_SAVE_SLOT);
+    var loadedSave:Save = loadFromSlot(SAVE_SLOT);
     if (_instance == null) _instance = loadedSave;
 
     return loadedSave;
@@ -63,7 +71,7 @@ class Save
 
   public static function clearData():Void
   {
-    _instance = clearSlot(BASE_SAVE_SLOT);
+    _instance = clearSlot(SAVE_SLOT);
   }
 
   /**
@@ -85,6 +93,7 @@ class Save
       // Version number is an abstract(Array) internally.
       // This means it copies by reference, so merging save data overides the version number lol.
       version: thx.Dynamics.clone(Save.SAVE_DATA_VERSION),
+      version_suffix: Save.SAVE_DATA_VERSION_SUFFIX,
 
       volume: 1.0,
       mute: false,
@@ -1222,7 +1231,9 @@ typedef RawSaveData =
   /**
    * A semantic versioning string for the save data format.
    */
-  var version:Version;
+  var version:thx.semver.Version;
+
+  var version_suffix:String;
 
   var api:SaveApiData;
 

@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2025-7-5
+This version introduces a SAVE_DATA_VERSION_SUFFIX variable to seperate Funkin saves from OOPS saves
+### Changed
+- `BASE_SAVE_SLOT` renamed to `SAVE_SLOT` and is a `var` instead of a `final`
+### Added
+- `CHANGE_SAVE_SLOT` to `Save` for changing save slots, automatically resets the game.
+- `SAVE_DATA_VERSION_SUFFIX` to `Save` for differencing Funkin saves from OOPS saves
+
 ## [2.1.0] - 2024-10-18
 This version introduces changes to save data loading in order to improve compatibility with older versions.
 ### Changed

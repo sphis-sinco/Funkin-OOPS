@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - "Mods" option to the Options Menu
 
 ### Changed
+- Save data version to `2.1.1` introducing changes listed here: [source/funkin/save/changelog.md](source/funkin/save/changelog.md)
 - The `REDIRECT_ASSETS_FOLDER` feature flag is now also dependent on if you specify it
 - The `FEATURE_NEWGROUNDS` feature flag is disabled
 - The `HARDCODED_CREDITS` feature flag is now dependent on if you specify it

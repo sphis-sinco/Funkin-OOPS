@@ -2,8 +2,8 @@ package funkin.save.migrator;
 
 import funkin.save.Save;
 import funkin.save.migrator.RawSaveData_v1_0_0;
-import thx.semver.Version;
 import funkin.util.VersionUtil;
+import thx.semver.Version;
 
 @:nullSafety
 class SaveDataMigrator
@@ -14,6 +14,8 @@ class SaveDataMigrator
   public static function migrate(inputData:Dynamic):Save
   {
     var version:Null<thx.semver.Version> = VersionUtil.parseVersion(inputData?.version ?? null);
+    var verSuffix:String = inputData.suffix;
+    verSuffix ??= '';
 
     if (version == null)
     {
@@ -24,7 +26,7 @@ class SaveDataMigrator
     else
     {
       // Sometimes the Haxe serializer has issues with the version so we fix it here.
-      version = VersionUtil.repairVersion(version);
+      version = VersionUtil.repairVersion(version, verSuffix);
       if (VersionUtil.validateVersion(version, Save.SAVE_DATA_VERSION_RULE))
       {
         // Import the structured data.

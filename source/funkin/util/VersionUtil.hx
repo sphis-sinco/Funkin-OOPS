@@ -32,11 +32,13 @@ class VersionUtil
     }
   }
 
-  public static function repairVersion(version:thx.semver.Version):thx.semver.Version
+  public static function repairVersion(version:thx.semver.Version, ?suffix:String = ''):thx.semver.Version
   {
     var versionData:thx.semver.Version.SemVer = version;
+    var versionSuffix:String = suffix;
+    versionSuffix ??= '';
 
-    if (thx.Types.isAnonymousObject(versionData.version))
+    if (thx.Types.isAnonymousObject(versionData.version) && versionSuffix == suffix)
     {
       // This is bad! versionData.version should be an array!
       trace('[SAVE] Version data repair required! (got ${versionData.version})');
