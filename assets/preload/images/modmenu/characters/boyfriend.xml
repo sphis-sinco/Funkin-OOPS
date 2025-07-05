@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="boyfriend.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BF animation disabled0000" x="4" y="4" width="602" height="656" frameX="-11" frameY="0" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0001" x="4" y="4" width="602" height="656" frameX="-11" frameY="0" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0002" x="614" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0003" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0004" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0005" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0006" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0007" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0008" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0009" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0010" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0011" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0012" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation disabled0013" x="1230" y="4" width="608" height="654" frameX="0" frameY="-2" frameWidth="613" frameHeight="656"/>
+	<SubTexture name="BF animation enabled0000" x="4" y="668" width="602" height="656" frameX="0" frameY="-1" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0001" x="4" y="668" width="602" height="656" frameX="0" frameY="-1" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0002" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0003" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0004" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0005" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0006" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0007" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0008" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0009" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0010" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0011" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0012" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation enabled0013" x="614" y="668" width="590" height="657" frameX="-17" frameY="0" frameWidth="607" frameHeight="657"/>
+	<SubTexture name="BF animation scroll0000" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0001" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0002" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0003" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0004" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0005" x="4" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0006" x="4" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0007" x="4" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0008" x="4" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0009" x="4" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0010" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0011" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0012" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0013" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0014" x="1212" y="668" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0015" x="624" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0016" x="624" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0017" x="624" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0018" x="624" y="1333" width="612" height="653"/>
+	<SubTexture name="BF animation scroll0019" x="624" y="1333" width="612" height="653"/>
+</TextureAtlas>
