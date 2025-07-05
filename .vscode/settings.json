@@ -1,13 +1,13 @@
 {
   "[haxe]": {
     // Automatically keep Haxe files formatted.
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "never"
+      "source.organizeImports": "always"
     },
     "editor.defaultFormatter": "nadako.vshaxe",
-    "editor.tabSize": 2
+    "editor.tabSize": 8
   },
 
   "[json]": {
@@ -23,7 +23,7 @@
     "editor.formatOnPaste": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.tabWidth": 2,
+  "prettier.tabWidth": 8,
 
   // XML formatting style configuration
   "xml.format.enabled": true,
@@ -64,7 +64,7 @@
   // Automatically detect indentation.
   "editor.detectIndentation": true,
   "editor.insertSpaces": true,
-  "editor.tabSize": 2,
+  "editor.tabSize": 8,
 
   // Automatically enforce Linux style line endings.
   "files.eol": "\n",

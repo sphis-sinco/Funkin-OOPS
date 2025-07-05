@@ -498,7 +498,7 @@ class Project extends HXProject {
 		FEATURE_GHOST_TAPPING.apply(this, false);
 
 		// Should be true unless explicitly requested.
-		HARDCODED_CREDITS.apply(this, true);
+		HARDCODED_CREDITS.apply(this, HARDCODED_CREDITS.isEnabled(this));
 		FEATURE_OPEN_URL.apply(this, true);
 		FEATURE_POLYMOD_MODS.apply(this, true);
 		FEATURE_FUNKVIS.apply(this, true);
@@ -514,14 +514,14 @@ class Project extends HXProject {
 		// TODO: Look into ways to optimize logging (maybe by using a thread pool?)
 		FEATURE_LOG_TRACE.apply(this, true);
 
-		FEATURE_NEWGROUNDS.apply(this, true);
+		FEATURE_NEWGROUNDS.apply(this, false);
 		FEATURE_NEWGROUNDS_DEBUG.apply(this, false);
 		FEATURE_NEWGROUNDS_TESTING_MEDALS.apply(this, FEATURE_NEWGROUNDS.isEnabled(this) && FEATURE_DEBUG_FUNCTIONS.isEnabled(this));
 		FEATURE_NEWGROUNDS_AUTOLOGIN.apply(this, FEATURE_NEWGROUNDS.isEnabled(this) && isWeb());
 		FEATURE_NEWGROUNDS_EVENTS.apply(this, FEATURE_NEWGROUNDS.isEnabled(this));
 
 		// Should default to true on workspace builds and false on release builds.
-		REDIRECT_ASSETS_FOLDER.apply(this, isDebug() && isDesktop());
+		REDIRECT_ASSETS_FOLDER.apply(this, isDebug() && isDesktop() && REDIRECT_ASSETS_FOLDER.isEnabled(this));
 
 		// Should be true on desktop, release, non-tester builds.
 		// We don't want testers to accidentally leak songs to their Discord friends!

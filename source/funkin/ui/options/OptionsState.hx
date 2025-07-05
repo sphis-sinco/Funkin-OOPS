@@ -44,12 +44,14 @@ class OptionsState extends MusicBeatState
     var options:OptionsMenu = optionsCodex.addPage(Options, new OptionsMenu());
     var preferences:PreferencesMenu = optionsCodex.addPage(Preferences, new PreferencesMenu());
     var controls:ControlsMenu = optionsCodex.addPage(Controls, new ControlsMenu());
+    var mods:ModMenu = optionsCodex.addPage(Mods, new ModMenu());
 
     if (options.hasMultipleOptions())
     {
       options.onExit.add(exitToMainMenu);
       controls.onExit.add(exitControls);
       preferences.onExit.add(optionsCodex.switchPage.bind(Options));
+      mods.onExit.add(optionsCodex.switchPage.bind(Options));
     }
     else
     {
@@ -90,6 +92,7 @@ class OptionsMenu extends Page<OptionsMenuPageName>
     super();
 
     add(items = new TextMenuList());
+    createItem("MODS", function() codex.switchPage(Mods));
     createItem("PREFERENCES", function() codex.switchPage(Preferences));
     createItem("CONTROLS", function() codex.switchPage(Controls));
     createItem("INPUT OFFSETS", function() {

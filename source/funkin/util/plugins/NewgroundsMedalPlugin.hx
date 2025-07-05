@@ -1,13 +1,15 @@
 package funkin.util.plugins;
 
 import flixel.FlxBasic;
+import flixel.graphics.FlxGraphic;
 import flixel.group.FlxContainer.FlxTypedContainer;
+import flixel.math.FlxRect;
 import flixel.text.FlxText;
 import funkin.audio.FunkinSound;
-import flixel.graphics.FlxGraphic;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
-import flixel.math.FlxRect;
+#if FEATURE_NEWGROUNDS
 import funkin.api.newgrounds.Medals;
+#end
 
 class NewgroundsMedalPlugin extends FlxTypedContainer<FlxBasic>
 {
@@ -29,7 +31,9 @@ class NewgroundsMedalPlugin extends FlxTypedContainer<FlxBasic>
 
     #if FLX_DEBUG
     FlxG.console.registerFunction("medal_test", NewgroundsMedalPlugin.play);
+    #if FEATURE_NEWGROUNDS
     FlxG.console.registerClass(Medals);
+    #end
     #end
 
     var ecs = (FlxG.width - 250) * 0.5;

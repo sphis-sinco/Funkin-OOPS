@@ -1,5 +1,6 @@
 package funkin.api.newgrounds;
 
+#if FEATURE_NEWGROUNDS
 import io.newgrounds.Call.CallOutcome;
 import io.newgrounds.NG;
 import io.newgrounds.objects.events.Outcome;
@@ -104,3 +105,4 @@ class Events
     logEvent('open-credits');
   }
 }
+#end

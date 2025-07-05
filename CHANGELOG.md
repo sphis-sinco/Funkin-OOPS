@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2025-07-05
 
+### Added
+- Reenabled the ModsMenu
+- "Mods" option to the Options Menu
+
+### Changed
+- The `REDIRECT_ASSETS_FOLDER` feature flag is now also dependent on if you specify it
+- The `FEATURE_NEWGROUNDS` feature flag is disabled
+- The `HARDCODED_CREDITS` feature flag is now dependent on if you specify it
+
 ### Removed
 - Playable pico assets
 - Weekend 1 assets
