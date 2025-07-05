@@ -1,5 +1,4 @@
-name: Final builds
-
+name: Build game (main)
 on:
   push:
     branches: [main]
