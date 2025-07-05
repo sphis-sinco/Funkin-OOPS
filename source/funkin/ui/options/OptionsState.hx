@@ -1,17 +1,17 @@
 package funkin.ui.options;
 
-import funkin.ui.Page.PageName;
-import funkin.ui.transition.LoadingState;
-import funkin.ui.debug.latency.LatencyState;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.group.FlxGroup;
 import flixel.util.FlxSignal;
 import funkin.audio.FunkinSound;
-import funkin.ui.mainmenu.MainMenuState;
-import funkin.ui.MusicBeatState;
 import funkin.graphics.shaders.HSVShader;
 import funkin.input.Controls;
+import funkin.ui.MusicBeatState;
+import funkin.ui.Page.PageName;
+import funkin.ui.debug.latency.LatencyState;
+import funkin.ui.mainmenu.MainMenuState;
+import funkin.ui.transition.LoadingState;
 #if FEATURE_NEWGROUNDS
 import funkin.api.newgrounds.NewgroundsClient;
 #end
@@ -92,7 +92,6 @@ class OptionsMenu extends Page<OptionsMenuPageName>
     super();
 
     add(items = new TextMenuList());
-    createItem("MODS", function() codex.switchPage(Mods));
     createItem("PREFERENCES", function() codex.switchPage(Preferences));
     createItem("CONTROLS", function() codex.switchPage(Controls));
     createItem("INPUT OFFSETS", function() {
@@ -103,6 +102,7 @@ class OptionsMenu extends Page<OptionsMenuPageName>
       #end
     });
 
+    createItem("MODS", function() codex.switchPage(Mods));
     #if FEATURE_NEWGROUNDS
     if (NewgroundsClient.instance.isLoggedIn())
     {

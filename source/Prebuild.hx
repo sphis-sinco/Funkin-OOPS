@@ -39,6 +39,7 @@ class NewgroundsCredentials
   static function buildCredsFile():Void
   {
     #if sys
+    #if FEATURE_NEWGROUNDS
     if (sys.FileSystem.exists(NG_CREDS_PATH))
     {
       trace('NewgroundsCredentials.hx already exists, skipping.');
@@ -51,6 +52,7 @@ class NewgroundsCredentials
 
       sys.io.File.saveContent(NG_CREDS_PATH, fileContents);
     }
+    #end
     #end
   }
 }

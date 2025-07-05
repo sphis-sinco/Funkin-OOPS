@@ -1,11 +1,12 @@
 package funkin.ui.options;
 
-import funkin.modding.PolymodHandler;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import polymod.Polymod.ModMetadata;
+import funkin.modding.PolymodHandler;
 import funkin.ui.Page;
+import funkin.ui.TextMenuList.TextMenuItem;
+import polymod.Polymod.ModMetadata;
 
 class ModMenu extends Page<OptionsState.OptionsMenuPageName>
 {
@@ -22,7 +23,11 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
     grpMods = new FlxTypedGroup<ModMenuItem>();
     add(grpMods);
 
+    var txt:TextMenuItem = new TextMenuItem(0, 0, "No mods found.", BOLD);
+    txt.screenCenter();
+
     refreshModList();
+    if (detectedMods.length < 1) add(txt);
   }
 
   override function update(elapsed:Float)
@@ -87,13 +92,16 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
 
     trace('ModMenu: Detected ${detectedMods.length} mods');
 
-    for (index in 0...detectedMods.length)
+    if (detectedMods.length >= 1)
     {
-      var modMetadata:ModMetadata = detectedMods[index];
-      var modName:String = modMetadata.title;
-      var txt:ModMenuItem = new ModMenuItem(0, 10 + (40 * index), 0, modName, 32);
-      txt.text = modName;
-      grpMods.add(txt);
+      for (index in 0...detectedMods.length)
+      {
+        var modMetadata:ModMetadata = detectedMods[index];
+        var modName:String = modMetadata.title;
+        var txt:ModMenuItem = new ModMenuItem(0, 10 + (40 * index), 0, modName, 32);
+        txt.text = modName;
+        grpMods.add(txt);
+      }
     }
     #end
   }
