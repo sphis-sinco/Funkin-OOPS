@@ -24,11 +24,11 @@ class Save
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = ">=2.1.0 <2.2.0";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
-  static final SAVE_PATH:String = 'FunkinCrew';
-  static final SAVE_NAME:String = 'Funkin';
+  static final SAVE_PATH:String = 'sphis_sinco';
+  static final SAVE_NAME:String = 'Funkin-OOPS';
 
-  static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
-  static final SAVE_NAME_LEGACY:String = 'funkin';
+  static final SAVE_PATH_LEGACY:String = 'FunkinCrew';
+  static final SAVE_NAME_LEGACY:String = 'Funkin';
 
   /**
    * We always use this save slot.
