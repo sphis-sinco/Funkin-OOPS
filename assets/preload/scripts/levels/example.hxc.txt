@@ -1,0 +1,23 @@
+import funkin.ui.story.Level;
+import funkin.save.Save;
+
+class YourLevel extends Level
+{
+	function new()
+	{
+		super('yourweek');
+	}
+
+  override function isUnlocked():Bool {
+    return true;
+  }
+
+  override function getSongDisplayNames(difficultyId:String):Array<String> {
+    if (Save.instance.hasBeatenLevel('yourweek')) {
+      // secretsong is a secret :)
+      return ["song1", "song2", "song3", "secretsong"];
+    } else {
+      return ["song1", "song2", "song3"];
+    }
+  }
+}
