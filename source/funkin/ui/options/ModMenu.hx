@@ -16,6 +16,10 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
 
   var curSelected:Int = 0;
 
+  var character:FunkinSprite;
+  var characterBRB:FunkinSprite;
+  var characterID:String = 'boyfriend';
+
   public function new():Void
   {
     super();
@@ -25,9 +29,27 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
 
     var txt:TextMenuItem = new TextMenuItem(0, 0, "No mods found.", BOLD);
     txt.screenCenter();
+    txt.selected = true;
+
+    character = FunkinSprite.createSparrow(0, 0, 'modmenu/characters/$characterID');
+    character.addByPrefix('scroll', 'BF animation scroll', 24, true);
+    character.addByPrefix('enabled', 'BF animation enabled', 24, true);
+    character.addByPrefix('disabled', 'BF animation disabled', 24, true);
+    character.y = FlxG.height - character.height;
+
+    characterBRB = FunkinSprite.create(0, 0, 'modmenu/characters/$characterID-brb');
+    characterBRB.screenCenter();
+    characterBRB.y -= txt.height + characterBRB.height;
 
     refreshModList();
-    if (detectedMods.length < 1) add(txt);
+    if (detectedMods.length < 1)
+    {
+      add(txt);
+    }
+    else
+    {
+      add(character);
+    }
   }
 
   override function update(elapsed:Float)
