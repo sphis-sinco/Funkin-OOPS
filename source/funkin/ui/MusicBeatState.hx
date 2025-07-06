@@ -1,18 +1,18 @@
 package funkin.ui;
 
+import funkin.modding.IScriptedClass.IEventHandler;
+import funkin.ui.mainmenu.MainMenuState;
 import flixel.FlxSubState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import flixel.util.FlxSort;
 import funkin.audio.FunkinSound;
-import funkin.input.Controls;
-import funkin.modding.IScriptedClass.IEventHandler;
+import flixel.util.FlxSort;
 import funkin.modding.PolymodHandler;
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.module.ModuleHandler;
-import funkin.ui.mainmenu.MainMenuState;
 import funkin.util.SortUtil;
+import funkin.input.Controls;
 
 /**
  * MusicBeatState actually represents the core utility FlxState of the game.
@@ -28,54 +28,6 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
 
   public var leftWatermarkText:Null<FlxText> = null;
   public var rightWatermarkText:Null<FlxText> = null;
-
-  /**
-   * Adds text to the `left` or `right` watermark, changing vertical position with `verticalOffset`
-   * @param newtext The text you want to add
-   * @param verticalOffset vertical offset, defaults to 0
-   * @param id `LEFT` or `RIGHT`, controls what watermark text has the text appended
-   */
-  public function appendText(newtext:String, verticalOffset:Float = 0, id:WatermarkID = LEFT):Void
-  {
-    var watermarkText:Null<FlxText> = null;
-
-    switch (id)
-    {
-      case LEFT:
-        watermarkText = leftWatermarkText;
-      case RIGHT:
-        watermarkText = rightWatermarkText;
-    }
-
-    watermarkText.text += newtext;
-    watermarkText.y += verticalOffset;
-
-    switch (id)
-    {
-      case LEFT:
-        leftWatermarkText.text = watermarkText.text;
-        leftWatermarkText.setPosition(watermarkText.x, watermarkText.y);
-      case RIGHT:
-        rightWatermarkText.text = watermarkText.text;
-        rightWatermarkText.setPosition(watermarkText.x, watermarkText.y);
-    }
-  }
-
-  /**
-   * Runs `appendText`, but this script allows for it to be used by mods
-   * and it returns the object
-   */
-  public static function appendTextStatic(newtext:String, verticalOffset:Float = 0, id:WatermarkID = LEFT):Null<FlxText>
-  {
-    appendText(newtext, verticalOffset, id);
-    switch (id)
-    {
-      case LEFT:
-        return leftWatermarkText;
-      case RIGHT:
-        return rightWatermarkText;
-    }
-  }
 
   public var conductorInUse(get, set):Conductor;
 
@@ -262,10 +214,4 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
   {
     dispatchEvent(new SubStateScriptEvent(SUBSTATE_CLOSE_END, targetState, true));
   }
-}
-
-enum abstract WatermarkID(String)
-{
-  var LEFT:String = 'left';
-  var RIGHT:String = 'right';
 }

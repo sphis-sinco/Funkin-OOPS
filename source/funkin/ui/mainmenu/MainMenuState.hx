@@ -1,27 +1,27 @@
 package funkin.ui.mainmenu;
 
+import flixel.addons.transition.FlxTransitionableState;
+import funkin.ui.debug.DebugMenuSubState;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
+import flixel.util.typeLimit.NextState;
 import flixel.input.touch.FlxTouch;
 import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
-import flixel.util.typeLimit.NextState;
-import funkin.api.newgrounds.Referral;
-import funkin.audio.FunkinSound;
 import funkin.graphics.FunkinCamera;
-import funkin.ui.AtlasMenuList.AtlasMenuItem;
-import funkin.ui.MenuList.MenuListItem;
-import funkin.ui.MenuList.MenuTypedList;
+import funkin.audio.FunkinSound;
+import flixel.tweens.FlxTween;
 import funkin.ui.MusicBeatState;
-import funkin.ui.Prompt;
-import funkin.ui.debug.DebugMenuSubState;
+import flixel.util.FlxTimer;
+import funkin.ui.AtlasMenuList.AtlasMenuItem;
 import funkin.ui.freeplay.FreeplayState;
-import funkin.ui.story.StoryMenuState;
+import funkin.ui.MenuList.MenuTypedList;
+import funkin.ui.MenuList.MenuListItem;
 import funkin.ui.title.TitleState;
+import funkin.ui.story.StoryMenuState;
+import funkin.ui.Prompt;
 import funkin.util.WindowUtil;
+import funkin.api.newgrounds.Referral;
 #if FEATURE_DISCORD_RPC
 import funkin.api.discord.DiscordClient;
 #end
@@ -167,12 +167,12 @@ class MainMenuState extends MusicBeatState
     super.create();
 
     // This has to come AFTER!
-    this.leftWatermarkText.text = 'OOPS ' + Constants.VERSION;
+    this.leftWatermarkText.text = Constants.VERSION;
 
     #if FEATURE_NEWGROUNDS
     if (NewgroundsClient.instance.isLoggedIn())
     {
-      appendText(' | Newgrounds: Logged in as ${NewgroundsClient.instance.user?.name}');
+      this.leftWatermarkText.text += ' | Newgrounds: Logged in as ${NewgroundsClient.instance.user?.name}';
     }
     #end
   }
