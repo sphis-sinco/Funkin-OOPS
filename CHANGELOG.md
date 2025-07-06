@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Reenabled the ModsMenu
 - "Mods" option to the Options Menu
+### Fixed
+- Compilable with HashLink now (thank you [NotHyper-474](https://github.com/NotHyper-474) for your help in this)
 ### Changed
 - Save data version to `2.1.1` introducing changes listed here: [source/funkin/save/changelog.md](source/funkin/save/changelog.md)
 - The `REDIRECT_ASSETS_FOLDER` feature flag is now also dependent on if you specify it

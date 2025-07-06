@@ -281,6 +281,13 @@ class Project extends HXProject
    */
   static final FEATURE_GHOST_TAPPING:FeatureFlag = "FEATURE_GHOST_TAPPING";
 
+  /**
+   * `-D FEATURE_VSYNC`
+   * If this flag is enabled, misses will not be counted when it is not the player's turn.
+   * Misses are still counted when the player has notes to hit.
+   */
+  static final FEATURE_VSYNC:FeatureFlag = "FEATURE_VSYNC";
+
   //
   // CONFIGURATION FUNCTIONS
   //
@@ -525,7 +532,7 @@ class Project extends HXProject
 
     // Should be false unless explicitly requested.
     GITHUB_BUILD.apply(this, false);
-    FEATURE_GHOST_TAPPING.apply(this, false);
+    FEATURE_GHOST_TAPPING.apply(this, FEATURE_GHOST_TAPPING.isEnabled(this));
 
     // Should be true unless explicitly requested.
     HARDCODED_CREDITS.apply(this, HARDCODED_CREDITS.isEnabled(this));
@@ -577,6 +584,10 @@ class Project extends HXProject
     // Should be true except on web builds.
     // Screenshots doesn't work there.
     FEATURE_SCREENSHOTS.apply(this, !isWeb());
+
+    // disabled on macos due to "error: Late swap tearing currently unsupported"
+    // disabled on hashlink cause of an "Missing return: Bool" and I don't wanna fuck with it
+    FEATURE_VSYNC.apply(this, !isMac() && !isHashLink());
   }
 
   /**

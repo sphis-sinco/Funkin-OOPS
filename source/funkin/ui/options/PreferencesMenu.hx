@@ -3,18 +3,21 @@ package funkin.ui.options;
 import flixel.FlxCamera;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-import funkin.ui.AtlasText.AtlasFont;
-import funkin.ui.Page;
 import funkin.graphics.FunkinCamera;
 import funkin.graphics.FunkinSprite;
+import funkin.ui.AtlasText.AtlasFont;
+import funkin.ui.Page;
 import funkin.ui.TextMenuList.TextMenuItem;
 import funkin.ui.options.items.CheckboxPreferenceItem;
-import funkin.ui.options.items.NumberPreferenceItem;
 import funkin.ui.options.items.EnumPreferenceItem;
+import funkin.ui.options.items.NumberPreferenceItem;
+
+#if FEATURE_VSYNC
 import lime.ui.WindowVSyncMode;
+#end
 
 class PreferencesMenu extends Page<OptionsState.OptionsMenuPageName>
 {
@@ -120,8 +123,7 @@ class PreferencesMenu extends Page<OptionsState.OptionsMenuPageName>
       Preferences.autoFullscreen = value;
     }, Preferences.autoFullscreen);
 
-    // disabled on macos due to "error: Late swap tearing currently unsupported"
-    #if !mac
+    #if FEATURE_VSYNC
     createPrefItemEnum('VSync', 'If enabled, game will attempt to match framerate with your monitor.', [
       "Off" => WindowVSyncMode.OFF,
       "On" => WindowVSyncMode.ON,
