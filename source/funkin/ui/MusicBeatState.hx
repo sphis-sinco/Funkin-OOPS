@@ -266,6 +266,6 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
 
 enum abstract WatermarkID(String)
 {
-  var LEFT = 'left';
-  var RIGHT = 'right';
+  var LEFT:String = 'left';
+  var RIGHT:String = 'right';
 }
