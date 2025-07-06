@@ -6,8 +6,8 @@ import funkin.graphics.video.FlxVideo;
 #if hxvlc
 import funkin.graphics.video.FunkinVideoSprite;
 #end
-import funkin.ui.MusicBeatSubState;
 import funkin.save.Save;
+import funkin.ui.MusicBeatSubState;
 
 /**
  * When you first enter the character select state, it will play an introductory video opening up the lights
@@ -121,6 +121,7 @@ class IntroSubState extends MusicBeatSubState
    */
   function onLightsEnd():Void
   {
+    #if (html5 || hxvlc)
     if (vid != null)
     {
       #if hxvlc
@@ -130,6 +131,7 @@ class IntroSubState extends MusicBeatSubState
       vid.destroy();
       vid = null;
     }
+    #end
 
     FlxG.camera.zoom = 1;
 
