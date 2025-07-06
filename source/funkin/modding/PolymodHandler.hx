@@ -1,26 +1,26 @@
 package funkin.modding;
 
-import polymod.fs.ZipFileSystem;
 import funkin.data.dialogue.conversation.ConversationRegistry;
 import funkin.data.dialogue.dialoguebox.DialogueBoxRegistry;
 import funkin.data.dialogue.speaker.SpeakerRegistry;
 import funkin.data.event.SongEventRegistry;
-import funkin.data.story.level.LevelRegistry;
-import funkin.data.notestyle.NoteStyleRegistry;
-import funkin.play.notes.notekind.NoteKindManager;
-import funkin.data.song.SongRegistry;
+import funkin.data.freeplay.album.AlbumRegistry;
 import funkin.data.freeplay.player.PlayerRegistry;
+import funkin.data.notestyle.NoteStyleRegistry;
+import funkin.data.song.SongRegistry;
 import funkin.data.stage.StageRegistry;
 import funkin.data.stickers.StickerRegistry;
-import funkin.data.freeplay.album.AlbumRegistry;
+import funkin.data.story.level.LevelRegistry;
 import funkin.modding.module.ModuleHandler;
 import funkin.play.character.CharacterData.CharacterDataParser;
+import funkin.play.notes.notekind.NoteKindManager;
 import funkin.save.Save;
 import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
+import polymod.Polymod;
 import polymod.backends.PolymodAssets.PolymodAssetType;
 import polymod.format.ParseRules.TextFileFormat;
-import polymod.Polymod;
+import polymod.fs.ZipFileSystem;
 
 /**
  * A class for interacting with Polymod, the atomic modding framework for Haxe.
@@ -39,7 +39,7 @@ class PolymodHandler
    * Using more complex rules allows mods from older compatible versions to stay functioning,
    * while preventing mods made for future versions from being installed.
    */
-  static final API_VERSION_RULE:String = ">=0.6.3 <0.7.0";
+  static final API_VERSION_RULE:String = ">=1.0.0 <1.1.0";
 
   /**
    * Where relative to the executable that mods are located.
