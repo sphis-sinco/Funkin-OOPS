@@ -3,6 +3,7 @@ package funkin.ui.options;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import funkin.graphics.FunkinSprite;
 import funkin.modding.PolymodHandler;
 import funkin.ui.Page;
 import funkin.ui.TextMenuList.TextMenuItem;
@@ -29,13 +30,14 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
 
     var txt:TextMenuItem = new TextMenuItem(0, 0, "No mods found.", BOLD);
     txt.screenCenter();
-    txt.selected = true;
+    txt.select();
 
     character = FunkinSprite.createSparrow(0, 0, 'modmenu/characters/$characterID');
-    character.addByPrefix('scroll', 'BF animation scroll', 24, true);
-    character.addByPrefix('enabled', 'BF animation enabled', 24, true);
-    character.addByPrefix('disabled', 'BF animation disabled', 24, true);
-    character.y = FlxG.height - character.height;
+    character.animation.addByPrefix('scroll', 'BF animation scroll', 24, true);
+    character.animation.addByPrefix('enabled', 'BF animation enabled', 24, true);
+    character.animation.addByPrefix('disabled', 'BF animation disabled', 24, true);
+    character.y = FlxG.height - character.height - 64;
+    character.x = FlxG.width - character.width + 32;
 
     characterBRB = FunkinSprite.create(0, 0, 'modmenu/characters/$characterID-brb');
     characterBRB.screenCenter();
@@ -45,6 +47,7 @@ class ModMenu extends Page<OptionsState.OptionsMenuPageName>
     if (detectedMods.length < 1)
     {
       add(txt);
+      add(characterBRB);
     }
     else
     {
