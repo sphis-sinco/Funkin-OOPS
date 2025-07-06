@@ -35,7 +35,7 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
    * @param verticalOffset vertical offset, defaults to 0
    * @param id `LEFT` or `RIGHT`, controls what watermark text has the text appended
    */
-  public function appendText(newtext:String, verticalOffset:Float = 0, id:WatermarkID = LEFT):Void
+  public var appendText:Dynamic = function(newtext:String, verticalOffset:Float = 0, id:WatermarkID = LEFT):Void
   {
     var watermarkText:Null<FlxText> = null;
 
@@ -58,22 +58,6 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
       case RIGHT:
         rightWatermarkText.text = watermarkText.text;
         rightWatermarkText.setPosition(watermarkText.x, watermarkText.y);
-    }
-  }
-
-  /**
-   * Runs `appendText`, but this script allows for it to be used by mods
-   * and it returns the object
-   */
-  public static function appendTextStatic(newtext:String, verticalOffset:Float = 0, id:WatermarkID = LEFT):Null<FlxText>
-  {
-    appendText(newtext, verticalOffset, id);
-    switch (id)
-    {
-      case LEFT:
-        return leftWatermarkText;
-      case RIGHT:
-        return rightWatermarkText;
     }
   }
 
